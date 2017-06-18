@@ -6,5 +6,12 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: opnechat_production
+  # url: redis://localhost:6379/1
+  # channel_prefix: opnechat_production
+  
+  url: <%= Rails.application.secrets.redis['url'] %>
+  host: <%= Rails.application.secrets.redis['host'] %>
+  port: <%= Rails.application.secrets.redis['port'] %>
+  password: <%= Rails.application.secrets.redis['password'] %>
+  inline: true
+  timeout: 1
